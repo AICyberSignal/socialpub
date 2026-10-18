@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>SocialPub sign-in</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Almost done</h1>
+    <p class="muted">Copy this page's address and paste it into the SocialPub window that is waiting for it.</p>
+  </header>
+  <div class="box"><span class="url" id="url"></span></div>
+  <button type="button" id="copy">Copy address</button>
+  <p class="muted" id="note"></p>
+  <p class="muted">The code in this address works only once and expires within minutes. Nothing on this
+  page is stored or sent anywhere.</p>
+</main>
+<script>
+  const url = location.href;
+  document.getElementById('url').textContent = url;
+  if (!new URLSearchParams(location.search).has('code')) {
+    document.getElementById('note').textContent = 'This address has no sign-in code. Start again from SocialPub.';
+  }
+  document.getElementById('copy').addEventListener('click', async (e) => {
+    try { await navigator.clipboard.writeText(url); e.target.textContent = 'Copied'; }
+    catch { getSelection().selectAllChildren(document.getElementById('url')); e.target.textContent = 'Press Ctrl+C'; }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+:root { --bg: #fbfbfd; --ink: #16151d; --muted: #5d5b6b; --line: #e3e2ea; --accent: #4b37d6; --on-accent: #ffffff; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #111017; --ink: #ecebf3; --muted: #a09eb0; --line: #2a2836; --accent: #a594ff; --on-accent: #111017; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 "Segoe UI", system-ui, -apple-system, sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 48px 20px 72px; }
+header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 28px; }
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; }
+h2 { font-size: 19px; margin: 32px 0 8px; }
+p, li { color: var(--ink); }
+.muted { color: var(--muted); }
+a { color: var(--accent); }
+nav { display: flex; gap: 18px; flex-wrap: wrap; font-size: 15px; margin-top: 12px; }
+footer { border-top: 1px solid var(--line); margin-top: 40px; padding-top: 16px; font-size: 14px; color: var(--muted); }
+code, .url { font-family: Consolas, ui-monospace, monospace; font-size: 14px; overflow-wrap: anywhere; }
+.box { border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; background: color-mix(in srgb, var(--bg) 92%, var(--accent)); }
+button { font: inherit; font-size: 15px; font-weight: 600; padding: 8px 16px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: var(--on-accent); cursor: pointer; margin-top: 12px; }
